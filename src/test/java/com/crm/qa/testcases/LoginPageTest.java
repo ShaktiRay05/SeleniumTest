@@ -1,5 +1,8 @@
 package com.crm.qa.testcases;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
@@ -35,12 +38,13 @@ public class LoginPageTest extends TestBase{
 	@Test
 	public void loginPageValidityTest(){
 		String title=loginPage.validateLoginPageTitle();
-		Assert.assertEquals(title, "#1 Free CRM App for every business CRM and VCM verifiable credentials management");	
+		AssertJUnit.assertEquals(title, "#1 Free CRM App for every business CRM and VCM verifiable credentials management");	
 	}
 	@Test
 	public void loginTest(){
 		homePage=loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
 	}
+	
 	
 	
 	@AfterMethod
